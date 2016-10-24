@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang='en' ng-app="inventory">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Shopular</title>
+    <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
+    <link rel="stylesheet" href="lib/styles/main.min.css">
+</head>
+
+<body ng-controller="InventoryController as inventory">
+    <header>
+      Shopular Inventory
+        <!-- <nav>
+            <div></div>
+            <div class="name">Name</div>
+            <div class="team hornets">Hornets</div>
+            <div class="team clippers">Clippers</div>
+            <div class="team sparks">Sparks</div>draggable=""
+            <div class="team lynx">Lynx</div>
+            <div></div>
+        </nav> -->
+    </header>
+    <main>
+        <section class="table-container">
+          <table class="table table-striped">
+            <thead>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Color</th>
+            </thead>
+            <tr ng-repeat="item in inventory.allItems" ng-class-odd="'odd'" ng-class-even="'even'">
+              <td>{{item.name}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.quantity}}</td>
+              <td>{{item.color}}</td>
+              <td><img ng-show="inventory.isOnSale(item)" ng-src={{saleImg}}></td>
+            </tr>
+          </table>
+            <tr>
+                <!-- <li><span>Position</span><span>Number</span><span>Name</span></li>
+                <li><span></span><span></span><span></span> -->
+            <!-- </ul> -->
+            <!-- <p class="placeholder">Select a Team</p>
+        </section>
+        <section class="player-container">
+            <div>
+                <img alt="">
+                <h3>Name</h3>
+                <p>Position - Num</p>
+            </div>
+            <p class="placeholder">Select a Player</p>
+        </section> -->
+    </main>
+    <script src="src/js/vendor/jquery-3.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src='src/js/app.js'></script>
+</body>
+
+</html>

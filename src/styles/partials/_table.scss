@@ -1,0 +1,30 @@
+img {
+}
+
+.table-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 4% 0;
+        table {
+        width: 80%;
+        thead {
+          line-height: 3em;
+          font-size: 1.5em;
+        }
+        tr {
+          line-height: 2em;
+          td {
+            text-align: center;
+          }
+        }
+    }
+}
+
+.odd {
+    background: lightblue;
+}
+
+.even {
+    background: lightgreen;
+}

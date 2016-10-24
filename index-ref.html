@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang='en' ng-app='rosters'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Intro to Angular JS - The Starting Five</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="lib/styles/main.min.css">
+</head>
+
+<body ng-controller="TeamRosters as roster">
+    <header>
+        <nav>
+            <div></div>
+            <div ng-click="roster.showRoster('thunder')" class="team thunder">Thunder</div>
+            <div ng-click="roster.showRoster('hornets')" class="team hornets">Hornets</div>
+            <div ng-click="roster.showRoster('clippers')" class="team clippers">Clippers</div>
+            <div ng-click="roster.showRoster('sparks')" class="team sparks">Sparks</div>
+            <div ng-click="roster.showRoster('lynx')" class="team lynx">Lynx</div>
+            <div></div>
+        </nav>
+    </header>
+    <main>
+        <section class="roster-container">
+            <ul ng-show="roster.selectedTeam">
+                <li><span>Position</span><span>Number</span><span>Name</span></li>
+                <li ng-click="roster.selectPlayer(player.name)" ng-repeat="player in roster.selectedTeam"><span>{{player.position}}</span><span>{{player.number}}</span><span>{{player.name}}</span>
+            </ul>
+            <p class="placeholder" ng-hide="roster.selectedTeam">Select a Team</p>
+        </section>
+        <section class="player-container">
+            <div ng-show="roster.selectedPlayer">
+                <img ng-src={{roster.selectedPlayer.image}} alt="{{roster.selectedPlayer.name}}">
+                <h3>{{roster.selectedPlayer.name}}</h3>
+                <p>{{roster.selectedPlayer.position +' - '+ roster.selectedPlayer.number}}</p>
+            </div>
+            <p class="placeholder" ng-hide="roster.selectedPlayer">Select a Player</p>
+        </section>
+    </main>
+    <script src="src/js/vendor/jquery-3.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src='src/js/app-ref.js'></script>
+</body>
+
+</html>
