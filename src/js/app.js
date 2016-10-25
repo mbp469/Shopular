@@ -103,12 +103,18 @@
             discount: 12
           }
         ]
-      $scope.tax = 5.75;
+      $scope.tax = .0575;
       $scope.saleImg = "src/images/sale.png";
       this.isOnSale = function(item){
-        console.log(item.discount);
         return item.discount > 0;
+      }
 
+
+      this.adjustPrice = function(item){
+        var adjustedPrice = item.price - item.discount;
+        var taxAmount = adjustedPrice * $scope.tax;
+        adjustedPrice += taxAmount;
+        return adjustedPrice.toFixed(2);
       }
     });
 
