@@ -16,7 +16,7 @@
               <input placeholder="New Item Color">
               <input placeholder="New Item Discount">
             </li>
-            <li ng-repeat="item in inventory.allItems" ng-class-odd="'odd'" ng-class-even="'even'">
+            <li ng-repeat="item in allItems" ng-class-odd="'odd'" ng-class-even="'even'">
               <input ng-model="item.id" placeholder="{{item.id}}">
               <input ng-model="item.name" placeholder="{{item.name}}">
               <input ng-model="item.price" placeholder="{{item.price}}">

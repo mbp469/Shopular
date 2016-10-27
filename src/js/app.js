@@ -1,21 +1,21 @@
-
     angular
     .module('inventory', ['ngRoute'])
 
     .config(function($routeProvider) {
       $routeProvider
       .when("/", {
-        templateUrl:"views/main.html"
+        templateUrl:"views/main.html",
+        controller: 'InventoryController'
       })
       .when("/edit", {
-        templateUrl:"views/edit.html"
+        templateUrl:"views/edit.html",
+        controller: 'InventoryController'
       });
     })
 
-    .controller('InventoryController', function($scope, dataService) {
-
-      dataService.getItems(function(response){
-        $scope.allItems = response.data;
+    .controller('InventoryController', function($scope,dataService) {
+      dataService.getItems(function(res){
+        $scope.allItems = res.data;
       });
 
       $scope.tax = .0575;
@@ -29,11 +29,11 @@
         var taxAmount = adjustedPrice * $scope.tax;
         adjustedPrice += taxAmount;
         return adjustedPrice.toFixed(2);
-      }
+      };
+
+
     })
-    .service('dataService',function($http){
+    .service('dataService',function($http) {
       this.getItems = function(callback) {
-        $http.get('src/mock/items.json')
-        .then(callback)
-      }
+      $http.get('src/mock/items.json').then(callback)};
     });
