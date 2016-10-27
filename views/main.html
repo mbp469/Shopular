@@ -7,7 +7,7 @@
           <th>Quantity</th>
           <th>Color</th>
         </thead>
-        <tr ng-repeat="item in inventory.allItems" ng-class-odd="'odd'" ng-class-even="'even'">
+        <tr ng-repeat="item in allItems" ng-class-odd="'odd'" ng-class-even="'even'">
           <td>{{item.name}}</td>
           <td>${{inventory.adjustPrice(item)}}</td>
           <td>{{item.quantity}}</td>

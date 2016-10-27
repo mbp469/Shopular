@@ -9,20 +9,26 @@
               <span>Color</span>
             </li>
             <li class="ul-input">
-              <input placeholder="New Item ID">
-              <input placeholder="New Item Name">
-              <input placeholder="New Item Price">
-              <input placeholder="New Item Quantity">
-              <input placeholder="New Item Color">
-              <input placeholder="New Item Discount">
+              <form novalidate name="new-item-form" class="new-item-form">
+                <input required placeholder="New Item ID" ng-model="item.id">
+                <input required placeholder="New Item Name" ng-model="item.name">
+                <input required placeholder="New Item Price" ng-model="item.price">
+                <input required placeholder="New Item Quantity" ng-model="item.quantity">
+                <input required placeholder="New Item Color" ng-model="item.color">
+                <input required placeholder="New Item Discount" ng-model="item.discount">
+              </form>
+              <span class="add-item" ng-click="addItem(item)">+ Add Item</span>
             </li>
             <li ng-repeat="item in allItems" ng-class-odd="'odd'" ng-class-even="'even'">
-              <input ng-model="item.id" placeholder="{{item.id}}">
-              <input ng-model="item.name" placeholder="{{item.name}}">
-              <input ng-model="item.price" placeholder="{{item.price}}">
-              <input ng-model="item.quantity" placeholder="{{item.quantity}}">
-              <input ng-model="item.color" placeholder="{{item.color}}">
-              <input ng-model="item.discount" placeholder="{{item.discount}}">
+              <form novalidate name="edit-item-form" class="edit-item-form">
+                <input ng-model="item.id" placeholder="{{item.id}}">
+                <input ng-model="item.name" placeholder="{{item.name}}">
+                <input ng-model="item.price" placeholder="{{item.price}}">
+                <input ng-model="item.quantity" placeholder="{{item.quantity}}">
+                <input ng-model="item.color" placeholder="{{item.color}}">
+                <input ng-model="item.discount" placeholder="{{item.discount}}">
+              </form>
+              <span class="delete-item" ng-click="deleteItem(item, $index)">Delete Item</span>
             </li>
           </ul>
     </main>
