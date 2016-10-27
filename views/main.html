@@ -1,0 +1,19 @@
+<main>
+    <section class="table-container">
+      <table class="table table-striped">
+        <thead>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Color</th>
+        </thead>
+        <tr ng-repeat="item in inventory.allItems" ng-class-odd="'odd'" ng-class-even="'even'">
+          <td>{{item.name}}</td>
+          <td>${{inventory.adjustPrice(item)}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.color}}</td>
+          <td><img ng-show="inventory.isOnSale(item)" ng-src={{saleImg}}></td>
+        </tr>
+      </table>
+        <tr>
+</main>

@@ -1,0 +1,28 @@
+
+    <main>
+        <section class="table-container">
+          <ul class="table table-striped">
+            <li class="ul-header">
+              <span>Name</span>
+              <span>Price</span>
+              <span>Quantity</span>
+              <span>Color</span>
+            </li>
+            <li class="ul-input">
+              <input placeholder="New Item ID">
+              <input placeholder="New Item Name">
+              <input placeholder="New Item Price">
+              <input placeholder="New Item Quantity">
+              <input placeholder="New Item Color">
+              <input placeholder="New Item Discount">
+            </li>
+            <li ng-repeat="item in inventory.allItems" ng-class-odd="'odd'" ng-class-even="'even'">
+              <input ng-model="item.id" placeholder="{{item.id}}">
+              <input ng-model="item.name" placeholder="{{item.name}}">
+              <input ng-model="item.price" placeholder="{{item.price}}">
+              <input ng-model="item.quantity" placeholder="{{item.quantity}}">
+              <input ng-model="item.color" placeholder="{{item.color}}">
+              <input ng-model="item.discount" placeholder="{{item.discount}}">
+            </li>
+          </ul>
+    </main>
