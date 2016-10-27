@@ -16,6 +16,7 @@
     .controller('InventoryController', function($scope,dataService,localStorageService) {
 
       dataService.getItemsFromLocalStorage(function() {
+
       });
 
       dataService.getItems(function(res){
@@ -32,6 +33,11 @@
         $scope.allItems.unshift(item);
         localStorageService.set('localStorageItems', $scope.allItems);
       };
+      $scope.updateItem = function(item, index) {
+        $scope.allItems.splice(index,1,item);
+        dataService.updateItem();
+        localStorageService.set('localStorageItems', $scope.allItems);
+      }
       $scope.tax = .0575;
       $scope.saleImg = "src/images/sale.png";
       this.isOnSale = function(item){
@@ -65,9 +71,11 @@
       };
 
       this.addItem = function(item) {
-        localStorageService.set('localStorageItems')
         return item;
       };
 
+      this.updateItem = function(item,$index) {
+        console.log('in update Item');
+      }
 
     });
