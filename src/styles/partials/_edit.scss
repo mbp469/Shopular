@@ -1,11 +1,26 @@
-.delete-item,
-.add-item {
+button {
   cursor: pointer;
+  &.delete-item {
+    background: red;
+    color: white;
+  }
+  &.update-item {
+    background: lightblue;
+    color: black;
+  }
+  &.add-item {
+    background: lightgreen;
+    color: black;
+  }
 }
-
+.label {
+  display: inline-block;
+  width: 16%;
+  text-align: center;}
 li {
   line-height: 1.5em;
   font-size: 1em;
+  margin: 2% 0;
 }
 
 input.ng-invalid.ng-dirty {

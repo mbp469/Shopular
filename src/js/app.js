@@ -5,12 +5,16 @@
       $routeProvider
       .when("/", {
         templateUrl:"views/main.html",
-        controller: 'InventoryController'
+        controller: 'InventoryController as inventory'
       })
       .when("/edit", {
         templateUrl:"views/edit.html",
-        controller: 'InventoryController'
+        controller: 'InventoryController as inventory'
       });
+    })
+    .controller('SortController', function(dataService,localStorageService){
+        this.sortType     = 'name'; // set the default sort type
+        this.sortReverse  = false;  // set the default sort order
     })
 
     .controller('InventoryController', function($scope,dataService,localStorageService) {
@@ -32,12 +36,18 @@
         dataService.addItem(item);
         $scope.allItems.unshift(item);
         localStorageService.set('localStorageItems', $scope.allItems);
+        console.log('controller.addItem()');
       };
       $scope.updateItem = function(item, index) {
-        $scope.allItems.splice(index,1,item);
         dataService.updateItem();
+        $scope.allItems.splice(index,1,item);
         localStorageService.set('localStorageItems', $scope.allItems);
-      }
+        console.log('in controller updateItem');
+      };
+      $scope.clearForm = function(){
+        localStorage.clear();
+      };
+
       $scope.tax = .0575;
       $scope.saleImg = "src/images/sale.png";
       this.isOnSale = function(item){
@@ -54,10 +64,6 @@
     })
     .service('dataService',function($http,localStorageService) {
 
-      this.storeItems = function(){
-        localStorageService.set('localStorageItems', $scope.allItems);
-      };
-
       this.getItemsFromLocalStorage = function(){
         return localStorageService.get('localStorageItems');
       };
@@ -71,11 +77,12 @@
       };
 
       this.addItem = function(item) {
+        console.log('dataService.addItem()');
         return item;
       };
 
       this.updateItem = function(item,$index) {
-        console.log('in update Item');
+        console.log('dataService: updateItem');
       }
 
     });

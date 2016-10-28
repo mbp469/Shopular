@@ -2,34 +2,34 @@
     <main>
         <section class="table-container">
           <ul class="table table-striped">
-            <li class="ul-header">
-              <span>Name</span>
-              <span>Price</span>
-              <span>Quantity</span>
-              <span>Color</span>
-            </li>
             <li class="ul-input">
-              <form novalidate name="new-item-form" class="new-item-form">
-                <input required type="number" placeholder="New Item ID" ng-model="item.id">
-                <input required type="text" placeholder="New Item Name" ng-model="item.name">
-                <input required type="number" placeholder="New Item Price" ng-model="item.price">
-                <input required type="number" placeholder="New Item Quantity" ng-model="item.quantity">
-                <input required type="text" placeholder="New Item Color" ng-model="item.color">
-                <input required type="number" placeholder="New Item Discount" ng-model="item.discount">
+              <div class="label">Item Id</div>
+              <div class="label">Name</div>
+              <div class="label">Price</div>
+              <div class="label">Quantity</div>
+              <div class="label">Color</div>
+              <div class="label">Discount</div>
+              <form novalidate name="new-item-form" class="new-item-form" ng-submit="addItem(item)">
+                <input id="id" ng-required="true"   type="number" placeholder="New Item ID" ng-model="item.id">
+                <input id="name" ng-required="true"   type="text" placeholder="New Item Name"ng-model="item.name">
+                <input id="price" ng-required="true"   type="number" placeholder="New Item Price" ng-model="item.price">
+                <input id="quantity" ng-required="true"   type="number" placeholder="New Item Quantity" ng-model="item.quantity">
+                <input id="color" ng-required="true"   type="text" placeholder="New Item Color" ng-model="item.color">
+                <input id="discount" ng-required="true"   type="number" placeholder="New Item Discount" ng-model="item.discount"><br>
+                <button class="add-item" ng-disabled="new-item-form.$invalid"> + Add Item</button>
               </form>
-              <span class="add-item" ng-click="$scope.new-item-form.$valid && addItem(item)">+ Add Item</span>
             </li>
             <li ng-repeat="item in allItems" ng-class-odd="'odd'" ng-class-even="'even'">
-              <form novalidate name="edit-item-form" class="edit-item-form">
-                <input required type="number" ng-model="item.id" placeholder="{{item.id}}">
-                <input required type="text" ng-model="item.name" placeholder="{{item.name}}">
-                <input required type="number" ng-model="item.price" placeholder="{{item.price}}">
-                <input required type="number" ng-model="item.quantity" placeholder="{{item.quantity}}">
-                <input required type="text" ng-model="item.color" placeholder="{{item.color}}">
-                <input required type="number" ng-model="item.discount" placeholder="{{item.discount}}">
+              <form novalidate name="edit-item-form" class="edit-item-form" ng-submit="updateItem(item)">
+                <input ng-required="true"  type="number" ng-model="item.id" placeholder="{{item.id}}">
+                <input ng-required="true" type="text" ng-model="item.name" placeholder="{{item.name}}">
+                <input ng-required="true" type="number" ng-model="item.price" placeholder="{{item.price}}">
+                <input ng-required="true" type="number" ng-model="item.quantity" placeholder="{{item.quantity}}">
+                <input ng-required="true" type="text" ng-model="item.color" placeholder="{{item.color}}">
+                <input ng-required="true" type="number" ng-model="item.discount" placeholder="{{item.discount}}"><br>
+                <button class="delete-item" ng-click="deleteItem(item, $index)">Delete Item</button>
+                <button class="update-item" ng-disabled="edit-item-form.$invalid" ng-click="updateItem(item, $index)">Submit Edit</button>
               </form>
-              <span class="delete-item" ng-click="deleteItem(item, $index)">Delete Item</span>
-              <span class="update-item" ng-click="$scope.edit-item-form.$valid && updateItem(item, $index)">Submit Edit</span>
 
             </li>
           </ul>

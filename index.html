@@ -5,16 +5,17 @@
     <meta charset='UTF-8'>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>Shopular</title>
-    <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
-    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
     <link rel="stylesheet" href="lib/styles/main.min.css">
 </head>
 
 <body ng-controller="InventoryController as inventory">
     <header>
       Shopular Inventory
+      <div class="button-box">
       <button><a href="#edit" class="edit-items">Edit Items</a></button>
       <button><a href="#/" class="view-items">View Items</a></button>
+      <button ng-click="clearForm()">Clear Local Storage</button>
+    </div>
     </header>
 
     <ng-view></ng-view>

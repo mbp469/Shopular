@@ -6,3 +6,19 @@ header {
   padding: 2% 1%;
   font-size: 2em;
 }
+.edit-items,
+.view-items {
+  text-decoration: none;
+  color: olivegreen;
+  &:visited,
+  &:link,
+  &:active {
+    color: olivegreen;
+  }
+}
+button {
+  background: beige;
+  &:focus {
+    background: tan;
+  }
+}
