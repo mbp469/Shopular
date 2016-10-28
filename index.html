@@ -5,39 +5,27 @@
     <meta charset='UTF-8'>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>Shopular</title>
-    <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
-    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
     <link rel="stylesheet" href="lib/styles/main.min.css">
 </head>
 
 <body ng-controller="InventoryController as inventory">
     <header>
       Shopular Inventory
+      <div class="button-box">
+      <button><a href="#edit" class="edit-items">Edit Items</a></button>
+      <button><a href="#/" class="view-items">View Items</a></button>
+      <button ng-click="clearForm()">Clear Local Storage</button>
+    </div>
     </header>
-    <main>
-        <section class="table-container">
-          <table class="table table-striped">
-            <thead>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Color</th>
-            </thead>
-            <tr ng-repeat="item in inventory.allItems" ng-class-odd="'odd'" ng-class-even="'even'">
-              <td>{{item.name}}</td>
-              <td>${{inventory.adjustPrice(item)}}</td>
-              <td>{{item.quantity}}</td>
-              <td>{{item.color}}</td>
-              <td><img ng-show="inventory.isOnSale(item)" ng-src={{saleImg}}></td>
-            </tr>
-          </table>
-            <tr>
-    </main>
+
+    <ng-view></ng-view>
+
     <footer>
-      
     </footer>
     <script src="src/js/vendor/jquery-3.1.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="src/js/vendor/ng-local-storage.min.js"></script>
     <script src='src/js/app.js'></script>
 </body>
 

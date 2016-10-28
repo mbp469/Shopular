@@ -1,0 +1,19 @@
+<main ng-controller="SortController as sort">
+    <section class="table-container">
+      <table class="table table-striped">
+        <thead>
+          <th> <a ng-click="sortType = 'name';sortReverse = !sortReverse">Name</a></th>
+          <th> <a ng-click="sortType = 'price';sortReverse = !sortReverse">Price</a></th>
+          <th> <a ng-click="sortType = 'quantity';sortReverse = !sortReverse">Quantity</a></th>
+          <th> <a ng-click="sortType = 'color';sortReverse = !sortReverse">Color</a></th>
+        </thead>
+        <tr ng-repeat="item in allItems | orderBy:sortType:sortReverse" ng-class-odd="'odd'" ng-class-even="'even'">
+          <td>{{item.name}}</td>
+          <td>{{inventory.adjustPrice(item) | currency}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.color}}</td>
+          <td><img ng-show="inventory.isOnSale(item)" ng-src={{saleImg}}></td>
+        </tr>
+      </table>
+        <tr>
+</main>
