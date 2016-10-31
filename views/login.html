@@ -1,0 +1,10 @@
+<main ng-controller="LoginController as login">
+    <section class="login-section">
+      <form name="login-form" ng-submit="login.loginUser(user,password)">
+        <input placeholder="user name" ng-model="user" type="text"/>
+        <input placeholder="password" ng-model="password" type="password"/>
+        <button type="submit">Login</button>
+      </form>
+
+    </section>
+</main>
