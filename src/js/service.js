@@ -25,16 +25,4 @@ angular.module('inventory')
     console.log('dataService: updateItem');
   };
 
-})
-.service('loginService', function(localStorageService){
-  this.setUser = function(user,pw) {
-    this.userObj = {
-      userName: user,
-      password: pw,
-      date: new Date()
-    }
-    console.log(this.userObj);
-    return this.userObj;
-  }
-
 });

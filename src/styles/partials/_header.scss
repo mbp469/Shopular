@@ -7,26 +7,43 @@ header {
     font-size: 2em;
 }
 
+.time-label,
+.user-name-label {
+    color: black;
+    font-size: 0.6em;
+    position: absolute;
+    left: 3vw;
+}
+.user-name-label {
+  top: 3vh;
+}
+.time-label {
+  top: 12vh;
+}
+
+.time,
 .user-name {
+    padding: 3px;
+    font-size: 0.5em;
     height: 6vh;
     width: 13vw;
     position: absolute;
     background: #fff;
-    top: 3vh;
     color: black;
+    left: 13vw;
 }
+
+.user-name {
+    top: 3vh;
+}
+
 .time {
-  height: 6vh;
-  width: 13vw;
-  position: absolute;
-  background: #fff;
-  top: 11vh;
-  color: black;
+    top: 11vh;
 }
 
 .edit-items,
-.view-items,
-.login-page {
+.login-page,
+.view-items {
     text-decoration: none;
     color: olive;
 
@@ -34,12 +51,14 @@ header {
     &:link,
     &:visited {
         color: olive;
+        font-size: 0.8rem;
     }
 }
 
 button {
-    background: beige;
-
+    background: burlywood;
+    color: olive;
+    font-size: 0.8rem;
     &:focus {
         background: tan;
     }

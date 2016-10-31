@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="lib/styles/main.min.css">
 </head>
 
-<body>
-    <header>
+<body ng-controller="MainController as main">
+    <header ng-controller="LoginController as login">
       Shopular Inventory
-      <div ng-controller="LoginController as login" class="user-name">{{login.user}}</div>
-      <div class="time">{{login.userObj}}</div>
+      <div class="user-name-label">User: </div>
+      <div class="user-name" ng-model="loggedUser.username">{{loggedUser.username}}</div>
+      <div class="time-label">Logged in at: </div>
+      <div class="time">{{loggedUser.time | date:"MMM dd-hh:mma"}}</div>
       <div class="button-box"  ng-controller="InventoryController as inventory">
       <button><a href="#edit" class="edit-items">Edit Items</a></button>
       <button><a href="#main" class="view-items">View Items</a></button>
@@ -32,6 +34,7 @@
     <script src='src/js/app.js'></script>
     <script src='src/js/controllers.js'></script>
     <script src='src/js/service.js'></script>
+    <script src='src/js/factory.js'></script>
 </body>
 
 </html>
