@@ -1,10 +1,15 @@
 "use strict";
 
 angular.module('inventory')
-.controller('LoginController', function(loginService){
-  this.loginUser = function(user,pw){
-    this.userObj = loginService.setUser(user,pw);
-    console.log(this.userObj.userName);
+.controller('LoginController', function(dataService,loginService){
+  var user = 'User Name';
+  var time = 'Login Time';
+
+  this.loginUser = function(user,pw) {
+    var userObj = loginService.setUser(user,pw);
+    user = userObj.userName;
+    time = userObj.time;
+    return userObj;
   }
 })
 .controller('SortController', function(dataService,localStorageService){

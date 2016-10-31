@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="lib/styles/main.min.css">
 </head>
 
-<body ng-controller="InventoryController as inventory">
+<body>
     <header>
       Shopular Inventory
-      <div class="button-box">
+      <div ng-controller="LoginController as login" class="user-name">{{login.user}}</div>
+      <div class="time">{{login.userObj}}</div>
+      <div class="button-box"  ng-controller="InventoryController as inventory">
       <button><a href="#edit" class="edit-items">Edit Items</a></button>
-      <button><a href="#/" class="view-items">View Items</a></button>
+      <button><a href="#main" class="view-items">View Items</a></button>
+      <button><a href="#/" class="login-page">Login Page</a></button>
       <button ng-click="clearForm()">Clear Local Storage</button>
     </div>
     </header>

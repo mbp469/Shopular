@@ -1,24 +1,46 @@
 header {
-  text-align: center;
-  height: 20vh;
-  background: darkolivegreen;
-  color: antiquewhite;
-  padding: 2% 1%;
-  font-size: 2em;
+    text-align: center;
+    height: 20vh;
+    background: darkolivegreen;
+    color: antiquewhite;
+    padding: 2% 1%;
+    font-size: 2em;
 }
+
+.user-name {
+    height: 6vh;
+    width: 13vw;
+    position: absolute;
+    background: #fff;
+    top: 3vh;
+    color: black;
+}
+.time {
+  height: 6vh;
+  width: 13vw;
+  position: absolute;
+  background: #fff;
+  top: 11vh;
+  color: black;
+}
+
 .edit-items,
-.view-items {
-  text-decoration: none;
-  color: olive;
-  &:visited,
-  &:link,
-  &:active {
+.view-items,
+.login-page {
+    text-decoration: none;
     color: olive;
-  }
+
+    &:active,
+    &:link,
+    &:visited {
+        color: olive;
+    }
 }
+
 button {
-  background: beige;
-  &:focus {
-    background: tan;
-  }
+    background: beige;
+
+    &:focus {
+        background: tan;
+    }
 }
