@@ -1,0 +1,22 @@
+.login-form {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  background: olive;
+  position: relative;
+  top: 5vh;
+  left: 35vw;
+  padding: 4%;
+  box-shadow: 1px 1px 3px black;
+  input {
+    margin: 1%;
+  }
+  button {
+    width: 50%;
+    margin: 2%;
+    align-self: center;
+    color: olive;
+    background: burlywood;
+    font-size: 1em;
+  }
+}
