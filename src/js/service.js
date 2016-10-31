@@ -4,6 +4,7 @@ angular.module('inventory')
 
 .service('dataService',function($http,localStorageService) {
 
+
   this.getItemsFromLocalStorage = function(){
     return localStorageService.get('localStorageItems');
   };

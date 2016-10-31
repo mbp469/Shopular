@@ -15,6 +15,7 @@
       <div class="user-name" ng-model="loggedUser.username">{{loggedUser.username}}</div>
       <div class="time-label">Logged in at: </div>
       <div class="time">{{loggedUser.time | date:"MMM dd-hh:mma"}}</div>
+      <button ng-click="login.logout()" class="log-out">Log Out</button>
       <div class="button-box"  ng-controller="InventoryController as inventory">
       <button><a href="#edit" class="edit-items">Edit Items</a></button>
       <button><a href="#main" class="view-items">View Items</a></button>

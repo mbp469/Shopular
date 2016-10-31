@@ -6,6 +6,7 @@ angular.module('inventory').controller('MainController', function($scope) {
       time: null,
       pw: null
     };
+
 }).controller('LoginController', function(dataService, UserMaker, $scope, $location) {
   this.username;
     this.create = function(user, pw) {
@@ -15,12 +16,20 @@ angular.module('inventory').controller('MainController', function($scope) {
         $location.path('main');
         return person;
     }
-
+    this.getUser = function() {
+      return $scope.loggedUser;
+    }
+    this.logout = function(){
+      $scope.loggedUser.username = null;
+      $scope.loggedUser.time = null;
+      $scope.loggedUser.pw = null;
+      $location.path('/');
+    }
 
 }).controller('SortController', function(dataService, localStorageService) {
     this.sortType = 'name'; // set the default sort type
     this.sortReverse = false; // set the default sort order
-}).controller('InventoryController', function($scope, dataService, localStorageService) {
+}).controller('InventoryController', function($scope, dataService, $location, localStorageService) {
 
     dataService.getItemsFromLocalStorage(function() {});
 
@@ -37,14 +46,17 @@ angular.module('inventory').controller('MainController', function($scope) {
         dataService.addItem(item);
         $scope.allItems.unshift(item);
         localStorageService.set('localStorageItems', $scope.allItems);
+        $location.path('main');
     };
     $scope.updateItem = function(item, index) {
         dataService.updateItem();
         $scope.allItems.splice(index, 1, item);
         localStorageService.set('localStorageItems', $scope.allItems);
+        $location.path('main');
     };
     $scope.clearForm = function() {
         localStorage.clear();
+        $location.path('/');
     };
 
     $scope.tax = .0575;
