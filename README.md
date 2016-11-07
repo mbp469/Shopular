@@ -1,6 +1,6 @@
 # Shopular
- 
-[Link to GitHub Pages](https://mbp469.github.io/Shopular/)
+Assignment to learn Angular.  
+[Link to Shopular GitHub Pages](https://mbp469.github.io/Shopular/)
 
 ####Learning Objectives
 
